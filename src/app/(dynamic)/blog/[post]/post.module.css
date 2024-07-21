@@ -1,0 +1,45 @@
+.postContainer {
+  padding: 2rem;
+}
+
+.header {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.title {
+  margin-bottom: 15px;
+}
+
+.imageContanier {
+  position: relative;
+  height: 50vh;
+  width: 90%;
+  margin: 10px auto;
+}
+
+.Image {
+  object-fit: cover;
+  border-radius: var(--radius-12);
+}
+
+.author {
+  position: absolute;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  background-color: var(--color-primary);
+  color: #eeeeee;
+  border-radius: var(--radius-6);
+  bottom: 0;
+  right: 0;
+}
+
+.text {
+  margin-top: 1rem;
+  padding: 1rem;
+  font-size: 1.1rem;
+  line-height: 25px;
+  columns: 2;
+  text-align: justify;
+}
