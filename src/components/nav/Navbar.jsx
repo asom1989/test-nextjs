@@ -19,8 +19,8 @@ export default function Navbar() {
         <Link href={"/about"} className={styles.link}>
           About
         </Link>
-        <Link href={"/blog"} className={styles.link}>
-          Blog
+        <Link href={"/products"} className={styles.link}>
+          Products
         </Link>
         <Link href={"/portfolio"} className={styles.link}>
           Portfolio
