@@ -31,13 +31,13 @@ import { createContext, useState, useEffect } from "react";
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const localStorageMode = localStorage.getItem("mode");
+  // const localStorageMode = localStorage.getItem("mode");
 
-  const [mode, setMode] = useState(localStorageMode);
+  const [mode, setMode] = useState("dark");
 
-  useEffect(() => {
-    localStorage.setItem("mode", mode);
-  }, [mode]);
+  // useEffect(() => {
+  //   localStorage.setItem("mode", mode);
+  // }, [mode]);
 
   const toggle = () => {
     setMode((prev) => (prev === "dark" ? "light" : "dark"));

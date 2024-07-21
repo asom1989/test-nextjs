@@ -11,6 +11,9 @@
   margin-bottom: 15px;
 }
 
+.tag {
+  text-transform: capitalize;
+}
 .imageContanier {
   position: relative;
   height: 50vh;
@@ -19,11 +22,11 @@
 }
 
 .Image {
-  object-fit: cover;
+  object-fit: contain;
   border-radius: var(--radius-12);
 }
 
-.author {
+.category {
   position: absolute;
   font-size: 0.8rem;
   font-weight: 600;
@@ -40,6 +43,21 @@
   padding: 1rem;
   font-size: 1.1rem;
   line-height: 25px;
-  columns: 2;
-  text-align: justify;
+  /* columns: 2;
+  text-align: justify; */
+}
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.1rem;
+  cursor: pointer;
+  width: 100%;
+}
+.gallery img {
+  width: fit-content;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-12);
 }

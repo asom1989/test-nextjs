@@ -2,6 +2,12 @@ import Link from "next/link";
 import styles from "./Shop.module.css";
 import Image from "next/image";
 
+export const metadata = {
+  title: "Hexashop-Products",
+  description:
+    "Explore a wide range of beauty products, latest smartphones, and exquisite perfumes at StoreX. Enjoy great deals and fast shipping on all orders!",
+};
+
 const getData = async () => {
   const res = await fetch("https://dummyjson.com/products");
   if (!res.ok) {
@@ -10,14 +16,18 @@ const getData = async () => {
   return res.json();
 };
 
-export default async function blog() {
+export default async function Products() {
   const data = await getData();
   const products = data.products;
 
   return (
     <div className={styles.mainContanier}>
       {products.map((product) => (
-        <Link href="/blog/id" className={styles.post} key={product.id}>
+        <Link
+          href={`/products/${product.id}`}
+          className={styles.post}
+          key={product.id}
+        >
           <div className={styles.imageContanier}>
             <Image
               className={styles.Image}
