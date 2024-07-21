@@ -2,6 +2,7 @@ import Link from "next/link";
 import styles from "./Navbar.module.css";
 import Button from "../button/Button";
 import { Lobster } from "next/font/google";
+import DarkModeToggle from "../darkModeToggle/DarkModeToggle";
 const logoFont = Lobster({
   subsets: ["latin"],
   weight: ["400"],
@@ -14,6 +15,7 @@ export default function Navbar() {
         HEXASHOP
       </Link>
       <div className={styles.links}>
+        <DarkModeToggle />
         <Link href={"/about"} className={styles.link}>
           About
         </Link>
