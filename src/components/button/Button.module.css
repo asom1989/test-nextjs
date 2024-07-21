@@ -1,0 +1,11 @@
+.logout {
+  padding: 1rem;
+  background-color: rgb(92, 92, 223);
+  border: none;
+  border-radius: var(--radius-12);
+  font-size: 1rem;
+  opacity: 0.8;
+}
+.logout:hover {
+  opacity: 1;
+}

@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem 0;
+}
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.icon {
+  cursor: pointer;
+  transition: scale linear 0.3s;
+  opacity: 0.8;
+}
+.icon:hover {
+  scale: 0.8;
+  opacity: 1;
+}

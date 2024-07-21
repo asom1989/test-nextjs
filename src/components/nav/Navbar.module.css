@@ -1,0 +1,25 @@
+.container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.logo {
+  color: blue;
+  font-size: 2rem;
+}
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+}
+.link {
+  opacity: 0.8;
+}
+.link:hover {
+  opacity: 1;
+}
