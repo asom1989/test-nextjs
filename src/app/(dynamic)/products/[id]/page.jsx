@@ -1,6 +1,73 @@
+// import styles from "./post.module.css";
+// import Image from "next/image";
+
+// const getData = async (id) => {
+//   const res = await fetch(`https://dummyjson.com/products/${id}`);
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch data");
+//   }
+//   return res.json();
+// };
+
+// export async function generateMetadata({ params }) {
+//   const product = await getData(params.id);
+//   return {
+//     title: `Hexashop-${product.title}`,
+//     description: product.description,
+//   };
+// }
+
+// export default async function Post({ params }) {
+//   const product = await getData(params.id);
+
+//   return (
+//     <div className={styles.postContainer}>
+//       <header className={styles.header}>
+//         <div className={styles.info}>
+//           <h2 className={styles.title}>{product.title}</h2>
+//           <p className={styles.desc}>
+//             {product.tags.map((tag, index) => (
+//               <span key={index} className={styles.tag}>
+//                 {tag}{" "}
+//               </span>
+//             ))}
+//           </p>
+//         </div>
+//         <div className={styles.imageContanier}>
+//           <Image
+//             className={styles.Image}
+//             src={product.thumbnail}
+//             fill={true}
+//             alt={product.title}
+//           />
+//           <span className={styles.category}>{product.category}</span>
+//         </div>
+//       </header>
+//       <div className={styles.content}>
+//         <div className={styles.gallery}>
+//           {product.images.map((image, i) => (
+//             <Image
+//               key={i}
+//               src={image}
+//               width={100}
+//               height={100}
+//               alt={product.title}
+//             />
+//           ))}
+//         </div>
+//         <p className={styles.text}>{product.description}</p>
+//       </div>
+//     </div>
+//   );
+// }
+
+"use client"; // إضافة هذه التعليمة لجعل المكون مكون عميل
+
+import { useState, useEffect } from "react";
 import styles from "./post.module.css";
 import Image from "next/image";
 
+// دالة لجلب البيانات
 const getData = async (id) => {
   const res = await fetch(`https://dummyjson.com/products/${id}`);
   if (!res.ok) {
@@ -9,16 +76,21 @@ const getData = async (id) => {
   return res.json();
 };
 
-export async function generateMetadata({ params }) {
-  const product = await getData(params.id);
-  return {
-    title: `Hexashop-${product.title}`,
-    description: product.description,
-  };
-}
+// المكون الرئيسي
+export default function Post({ params }) {
+  const [product, setProduct] = useState(null);
+  const [mainImage, setMainImage] = useState("");
 
-export default async function Post({ params }) {
-  const product = await getData(params.id);
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getData(params.id);
+      setProduct(data);
+      setMainImage(data.thumbnail);
+    };
+    fetchData();
+  }, [params.id]);
+
+  if (!product) return <div>Loading...</div>;
 
   return (
     <div className={styles.postContainer}>
@@ -36,7 +108,7 @@ export default async function Post({ params }) {
         <div className={styles.imageContanier}>
           <Image
             className={styles.Image}
-            src={product.thumbnail}
+            src={mainImage}
             fill={true}
             alt={product.title}
           />
@@ -52,6 +124,8 @@ export default async function Post({ params }) {
               width={100}
               height={100}
               alt={product.title}
+              className={styles.thumbnail}
+              onClick={() => setMainImage(image)} // تحديث الصورة الرئيسية عند النقر
             />
           ))}
         </div>
